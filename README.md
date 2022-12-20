@@ -4,3 +4,5 @@ run word count from local & hadoop.
 run inverted index count from local & hadoop.
 Hive instllation.
 Create GeoLocation  & Trucks Tables.  Write a query to get all truck models that visited San Diego city.
+install hadoop in multi node
+run word count in multi node
