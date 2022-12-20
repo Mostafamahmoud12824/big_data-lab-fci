@@ -1,0 +1,27 @@
+CREATE SCHEMA Geolocatoindb;
+
+use Geolocatoindb;
+
+CREATE TABLE geolocation (truckid STRING,driverid STRING,event STRING,latitude INT,longitude INT,city STRING,state STRING,velocity INT,event_ind INT,idling_ind INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+CREATE TABLE trucks (driverid STRING,truckid STRING,model STRING,jun13_miles INT,jun13_gas INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+LOAD DATA LOCAL INPATH '/home/hduser/Desktop/Geolocation/geolocation.csv' INTO TABLE geolocation;
+
+
+LOAD DATA LOCAL INPATH '/home/hduser/Desktop/Geolocation/trucks.csv' INTO TABLE trucks;
+
+SELECT * FROM trucks t JOIN geolocation g on (t.driverid = g.driverid) WHERE g.city = 'San Diego';
+
+
+multinode:
+10.23.12.237 HadoopSlave1
+10.23.14.41  HadoopMaster
+10.23.14.57  HadoopSlave2
+
+
+https://intellitech.pro/tutorial-hadoop-multi-node-installation/ ==>> multi_node installation
+
+
+
+       
